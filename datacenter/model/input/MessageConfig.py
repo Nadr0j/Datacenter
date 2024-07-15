@@ -1,4 +1,4 @@
-from datacenter.model.external.RoleConfig import RoleConfig
+from datacenter.model.input.RoleConfig import RoleConfig
 from pydantic import BaseModel
 
 

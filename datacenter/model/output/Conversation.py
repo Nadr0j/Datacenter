@@ -1,4 +1,4 @@
-from datacenter.model.internal.Message import Message
+from datacenter.model.output.Message import Message
 from pydantic import BaseModel
 
 

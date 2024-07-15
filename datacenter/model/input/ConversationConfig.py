@@ -1,4 +1,4 @@
-from datacenter.model.external.MessageConfig import MessageConfig
+from datacenter.model.input.MessageConfig import MessageConfig
 from pydantic import BaseModel
 
 

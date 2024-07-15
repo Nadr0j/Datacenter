@@ -1,4 +1,4 @@
-from datacenter.model.internal.Role import Role
+from datacenter.model.output.Role import Role
 from pydantic import BaseModel
 
 
