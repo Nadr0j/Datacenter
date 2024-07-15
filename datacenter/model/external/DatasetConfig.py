@@ -1,10 +1,8 @@
-from dataclasses import dataclass
-from ConversationConfig import ConversationConfig
+from datacenter.model.external.ConversationConfig import ConversationConfig
 from pydantic import BaseModel
-from DatasetMetadataConfig import DatasetMetadataConfig
+from datacenter.model.external.DatasetMetadataConfig import DatasetMetadataConfig
 
 
-@dataclass
 class DatasetConfig(BaseModel):
     conversations: list[ConversationConfig]
     metadata: DatasetMetadataConfig

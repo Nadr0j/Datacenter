@@ -1,6 +1,5 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 
-@dataclass
-class DatasetMetadata:
+class DatasetMetadata(BaseModel):
     id: str

@@ -1,10 +1,8 @@
-from dataclasses import dataclass
-from DatasetConfig import DatasetConfig
-from ..Deserializable import Deserializable
+from datacenter.model.external.DatasetConfig import DatasetConfig
+from pydantic import BaseModel
 
 
-@dataclass
-class CreateConversationalDatasetRequest(Deserializable):
+class CreateConversationalDatasetRequest(BaseModel):
     id: str
     dataset: DatasetConfig
 

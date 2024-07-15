@@ -10,23 +10,23 @@ from ..model.external.DatasetMetadataConfig import DatasetMetadataConfig
 from ..model.internal.DatasetMetadata import DatasetMetadata
 
 
-class Mapper:
+class ExternalToInternalObjectMapper:
     @classmethod
     def role_config_to_role(cls, role_config: RoleConfig) -> Role:
         role_map: dict[RoleConfig, Role] = {
-            RoleConfig.USER: Role.USER,
-            RoleConfig.ASSISTANT: Role.ASSISTANT
+            RoleConfig.USER(): Role.USER(),
+            RoleConfig.ASSISTANT(): Role.ASSISTANT()
         }
         return role_map[role_config]
 
     @classmethod
-    def dataset_metadata_config_to_dataset_metadata(cls, dataset_metadata: DatasetMetadataConfig) -> DatasetMetadata:
-        return DatasetMetadata(dataset_metadata.id)
-
-    @classmethod
     def message_config_to_message(cls, message_config: MessageConfig) -> Message:
         role = cls.role_config_to_role(message_config.role_config)
-        return Message(role, message_config.content)
+        return Message(role=role, content=message_config.content)
+
+    @classmethod
+    def dataset_metadata_config_to_dataset_metadata(cls, dataset_metadata: DatasetMetadataConfig) -> DatasetMetadata:
+        return DatasetMetadata(dataset_metadata.id)
 
     @classmethod
     def conversation_config_to_conversation(cls, conversation_config: ConversationConfig) -> Conversation:
